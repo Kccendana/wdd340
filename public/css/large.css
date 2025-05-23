@@ -60,4 +60,7 @@
         grid-column: 1 / 2;
         grid-row-start: 1;
     }
+    section.details{
+        grid-template-columns: 1fr 1fr;
+    }
 }

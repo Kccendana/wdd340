@@ -143,3 +143,82 @@ ul.upgrade-lists li a .imCon {
 footer{
   padding: 1em 0;
 }
+
+/*inventory*/
+#inv-display{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+  padding: 0 2em;
+  margin: 0 auto;
+}
+
+#inv-display li{
+  list-style: none;
+  border: 2px solid #831010a6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  /* width: 250px; */
+}
+
+.namePrice {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.namePrice h2 a{
+  font-size: 0.75em;
+}
+
+#inv-display li a img {
+    border-radius: 10px 10px 0 0;
+}
+hr {
+  border: 2px solid;
+  margin: 1.5em 0 1em;
+}
+
+/*detail view*/
+section.details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+  padding: 1em;
+}
+.vehicle-data {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    font-size: 1em;
+}
+.vehicle-data p{
+  padding: 0.5em;
+}
+.vehicle-data p:nth-child(even){
+  background-color: #14141411;
+}
+
+.v-info{
+  margin-left: 0.5em;
+}
+.vehicle-data h2 {
+  font-size: 1.3em;
+  margin-bottom: 0.75em;
+}
+.error {
+    position: relative;
+}
+
+.error p{
+  font-size: 1.5em;
+  font-weight: 600;
+  position: absolute;
+  top: 10%;
+  right: 0;
+  left: 0;
+  text-align: center;
+  
+}
