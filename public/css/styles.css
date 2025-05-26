@@ -16,9 +16,6 @@
   --font1:  "Montserrat", sans-serif;
   --font2:  "Merriweather", serif;
 }
-body{
-  min-width: 450px;
-}
 img{
   width: 100%;
 }
