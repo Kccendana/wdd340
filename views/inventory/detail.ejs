@@ -3,7 +3,7 @@
     <img src="<%= vehicle.inv_image %>" alt="<%= vehicle.inv_make %>  <%= vehicle.inv_model %>">
     <div class="vehicle-data">
         <h2><%= vehicle.inv_make %> <%= vehicle.inv_model %> Details</h2>
-        <p><strong>Price:</strong> <span class="v-info">$<%= vehicle.inv_price.toLocaleString() %></span></p>
+        <p><strong>Price:</strong> <span class="v-info">$<%= Number(vehicle.inv_price).toLocaleString() %></span></p>
         <p><strong>Description: </strong><span class="v-info"><%= vehicle.inv_description %></span></p>
         <p><strong>Color: </strong><span class="v-info"><%= vehicle.inv_color %></span></p>
         <p><strong>Miles:</strong> <span class="v-info"><%= vehicle.inv_miles.toLocaleString() %></span></p>
