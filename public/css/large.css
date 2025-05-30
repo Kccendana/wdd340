@@ -63,4 +63,8 @@
     section.details{
         grid-template-columns: 1fr 1fr;
     }
+
+    .formCon {
+        padding: 0 20%;
+    }
 }

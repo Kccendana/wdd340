@@ -219,3 +219,49 @@ section.details {
   text-align: center;
   
 }
+
+/*Log In Form*/
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 10px 9px 22px -4px rgba(3,3,3,0.37);
+-webkit-box-shadow: 10px 9px 22px -4px rgba(3,3,3,0.37);
+-moz-box-shadow: 10px 9px 22px -4px rgba(3,3,3,0.37);
+  margin-top: 0.5em;
+}
+.inputCon{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+.signup p a {
+  margin-left: 0.5em;
+}
+input {
+    font-size: 1em;
+    padding: 0.45em;
+    border-radius: 5px;
+    border: 1px solid;
+}
+button.submitBtn{
+  background-color: var(--color4);
+  color: var(--headfontcolor);
+  font-size: 1.25em;
+  border: none;
+  padding: 0.25em 0.75em;
+  border-radius: 5px;
+  box-shadow: 10px 9px 22px -4px rgba(3,3,3,0.37);
+-webkit-box-shadow: 10px 9px 22px -4px rgba(3,3,3,0.37);
+-moz-box-shadow: 10px 9px 22px -4px rgba(3,3,3,0.37);
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+button.submitBtn:hover{
+  color: var(--color4);
+  background-color: var(--headfontcolor);
+  border: 2px solid var(--color4);
+}
