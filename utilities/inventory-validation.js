@@ -68,7 +68,7 @@ validate.addInventoryRules = () => {
       body("inv_year")
         .trim()
         .notEmpty().withMessage("Year is required.")
-        .isInt({ min: 1900, max: new Date().getFullYear() + 1 }) // allow current or next year
+        .isInt({ min: 1000, max: 9999})
         .withMessage("Year must be a valid 4-digit number."),
   
       // description is required and must be strong password
@@ -86,7 +86,7 @@ validate.addInventoryRules = () => {
         .withMessage("Image path must be in the format: /images/vehicles/filename.jpg or .png"),
       
       //image must be in this format
-      body("inv_image")
+      body("inv_thumbnail")
         .trim()
         .notEmpty().withMessage("Image path is required.")
         .matches(/^\/images\/vehicles\/[a-zA-Z0-9\-]+\.(jpg|png)$/)
