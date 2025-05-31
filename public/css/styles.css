@@ -241,12 +241,18 @@ form {
 .signup p a {
   margin-left: 0.5em;
 }
-input {
+select, textarea, input {
     font-size: 1em;
     padding: 0.45em;
     border-radius: 5px;
     border: 1px solid;
 }
+/* input:required:invalid, input:focus:invalid {
+ background-color: #83101052;
+}
+input:required:valid {
+ background-color: rgba(2, 117, 2, 0.281);
+} */
 button.submitBtn{
   background-color: var(--color4);
   color: var(--headfontcolor);
@@ -264,4 +270,17 @@ button.submitBtn:hover{
   color: var(--color4);
   background-color: var(--headfontcolor);
   border: 2px solid var(--color4);
+}
+/*Inventory Management View*/
+.managementCon{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+div#messages {
+    color: var(--color4);
+    padding-left: 1em;
+    margin-bottom: 0.5em;
+    font-style: italic;
 }
