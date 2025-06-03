@@ -10,7 +10,6 @@ const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
-const Util = require('./utilities'); // or your actual path
 const inventoryRoute = require("./routes/inventoryRoute");
 const accountRoute = require("./routes/accountRoute"); //acount
 const utilities = require("./utilities/")
@@ -18,6 +17,7 @@ const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
 const bodyParser = require("body-parser")
 const pool = require('./database/')
+const cookieParser = require("cookie-parser")
 
 const app = express()
 
@@ -46,12 +46,18 @@ app.use(function(req, res, next){
   next()
 })
 
+//cookie-parser
+app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
 /* ***********************
  * View Engine and Templates
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
+
+
 /* ***********************
  * Routes
  *************************/
