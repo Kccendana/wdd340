@@ -1,0 +1,59 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } %>
+<div class="formCon">
+    <%- messages() %>
+    <% if (errors) { %>
+        <ul class="notice">
+        <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+        <%  }) %>
+        </ul>
+        <% } %>
+    <form action="/inv/delete" method="post">
+        <p>Confirm deletion. The deletion is permanent.</p>
+        <div class="inputCon">
+            <label for="make">
+                Make
+            </label>
+            <input type="text" id="make" name="inv_make" 
+                 required placeholder="Minimum of 3 characters" title="Minimum of 3 characters" value="<%= locals.inv_make %>" disabled>
+                 <input type="hidden" name="inv_make" value="<%= locals.inv_make %>">
+        </div>
+        <div class="inputCon">
+            <label for="model">
+                Model
+            </label>
+            <input type="text" id="model" name="inv_model" 
+                 required placeholder="Minimum of 3 characters" title="Minimum of 3 characters" value="<%= locals.inv_model %>" disabled>
+                 <input type="hidden" name="inv_model" value="<%= locals.inv_model %>">
+        </div>
+
+        <div class="inputCon">
+            <label for="price">
+                Price
+            </label>
+            <input type="number" id="price" name="inv_price" 
+                 required placeholder="Decimal or integer" min="0" value="<%= locals.inv_price%>" disabled>
+                 <input type="hidden" name="inv_price" value="<%= locals.inv_price %>">
+        </div>
+        <div class="inputCon">
+            <label for="year">
+                Year
+            </label>
+            <input type="number" id="year" name="inv_year" 
+                 required placeholder="Enter a 4-digit year" min="1000" value="<%= locals.inv_year%>" disabled>
+                 <input type="hidden" name="inv_year" value="<%= locals.inv_year %>">
+        </div>
+        
+            <input type="hidden" name="inv_id"
+                <% if(inv_id) { %> value="<%= locals.inv_id %>"
+                <% } %>>
+            <div class="wrap">
+                <button type="submit" class="submitBtn">
+                   Delete Vehicle
+                </button>
+            </div>
+        </form>
+        
+</div>

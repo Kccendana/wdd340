@@ -1,0 +1,88 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } %>
+<div class="formCon">
+    <%- messages() %>
+    <% if (errors) { %>
+        <ul class="notice">
+        <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+        <%  }) %>
+        </ul>
+        <% } %>
+    <form action="/inv/update" method="post">
+        <p>All fields are required.</p>
+        <div class="inputCon">
+            <label for="classificationList">Classification</label>
+            <%- classificationSelect %>
+        </div>
+        <div class="inputCon">
+            <label for="make">
+                Make
+            </label>
+            <input type="text" id="make" name="inv_make" 
+                 required placeholder="Minimum of 3 characters" title="Minimum of 3 characters" value="<%= locals.inv_make %>">
+        </div>
+        <div class="inputCon">
+            <label for="model">
+                Model
+            </label>
+            <input type="text" id="model" name="inv_model" 
+                 required placeholder="Minimum of 3 characters" title="Minimum of 3 characters" value="<%= locals.inv_model %>">
+        </div>
+        <div class="inputCon">
+            <label for="description">
+                Description
+            </label>
+            <textarea id="description" name="inv_description" rows="6" minlength="10"
+              maxlength="500" required><%= locals.inv_description%></textarea>
+        </div>
+        <div class="inputCon">
+            <label for="inv_image">Image Path</label>
+            <input type="text" id="inv_image" name="inv_image" pattern="^\/images\/vehicles\/[a-zA-Z0-9\-]+\.(jpg|png)$"
+                title="Path must follow this format: /images/vehicles/filename.jpg or .png"
+                value="<%= locals.inv_image || '' %>" required>
+        </div>
+        <div class="inputCon">
+            <label for="inv_thumbnail">Thumbnail Path</label>
+            <input type="text" id="inv_thumbnail" name="inv_thumbnail" required
+                pattern="^\/images\/vehicles\/[a-zA-Z0-9\-]+\.(jpg|png)$"
+                title="Path must follow this format: /images/vehicles/filename.jpg or .png"
+                value="<%= locals.inv_thumbnail || '' %>">
+        </div>
+        <div class="inputCon">
+            <label for="price">
+                Price
+            </label>
+            <input type="number" id="price" name="inv_price" 
+                 required placeholder="Decimal or integer" min="0" value="<%= locals.inv_price%>">
+        </div>
+        <div class="inputCon">
+            <label for="year">
+                Year
+            </label>
+            <input type="number" id="year" name="inv_year" 
+                 required placeholder="Enter a 4-digit year" min="1000" value="<%= locals.inv_year%>">
+        </div>
+        <div class="inputCon">
+            <label for="miles">
+                Miles
+            </label>
+            <input type="number" id="miles" name="inv_miles" 
+                 required placeholder="digits only" min="0" step="1" value="<%= locals.inv_miles%>">
+        </div>
+        <div class="inputCon">
+            <label for="inv_color">Color</label>
+            <input type="text" id="inv_color" name="inv_color" required value="<%= locals.inv_color%>">
+        </div>
+            <input type="hidden" name="inv_id"
+                <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+                <% } %>>
+            <div class="wrap">
+                <button type="submit" class="submitBtn">
+                   Update Vehicle
+                </button>
+            </div>
+        </form>
+        
+</div>

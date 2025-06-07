@@ -35,5 +35,17 @@ router.post(
   regValidate.checkInventoryData,
   utilities.handleErrors(invController.addInventory)
 )
+//get inventory by AJAX route
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
+//build view for modifying inventory /inv/edit/2
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
+
+router.post("/update/", utilities.handleErrors(invController.updateInventory))
+
+//build view for deleting inventory /inv/edit/2
+router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventoryView));
+
+//process for deletion
+router.post("/delete/", utilities.handleErrors(invController.deleteInventory))
 module.exports = router;

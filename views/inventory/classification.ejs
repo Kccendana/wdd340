@@ -1,9 +1,13 @@
 <% if (title) { %>
-<h1><%= title %></h1>
-<% } else {
-  res.redirect('/')
-} %>
+  <h1><%= title %></h1>
+<% } else { %>
+  <% res.redirect('/') %>
+<% } %>
 
-<%# messages() %>
+<%- messages() %>
 
-<%- grid %>
+<% if (data && data.length > 0) { %>
+  <%- grid %>
+<% } else { %>
+  <p>No vehicle available in this classification.</p>
+<% } %>

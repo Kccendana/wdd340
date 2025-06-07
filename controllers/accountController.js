@@ -20,9 +20,21 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildAccountManagement(req, res, next) {
   let nav = await utilities.getNav()
+  let account_firstname
+
+  try {
+    const token = req.cookies.jwt
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+    account_firstname = decoded.account_firstname
+  } catch (err) {
+    req.flash("notice", "You must be logged in to view this page.")
+    return res.redirect("/account/login")
+  }
+
   res.render("account/accountmanagement", {
-    title: "You are logged in",
+    title: "Account Management",
     nav,
+    account_firstname,
   })
 }
 
@@ -91,6 +103,7 @@ async function accountLogin(req, res) {
   let nav = await utilities.getNav()
   const { account_email, account_password } = req.body
   const accountData = await accountModel.getAccountByEmail(account_email)
+  console.log(accountData)
   if (!accountData) {
     req.flash("notice", "Please check your credentials and try again.")
     res.status(400).render("account/login", {
