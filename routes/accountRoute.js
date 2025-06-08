@@ -38,5 +38,16 @@ router.post(
 //   }
 // )
 
+// Route to build update account management view 
+router.get("/update/:accountId",utilities.checkJWTToken, utilities.checkLogin, utilities.handleErrors(accountController.buildUpdateManagementView));
+
+// Route to process update account 
+router.post("/update", utilities.handleErrors(accountController.updateAccount));
+
+// Route to process update password
+router.post("/update-password", utilities.handleErrors(accountController.updatePassword));
+
+// Route to process logout
+router.get("/logout", utilities.handleErrors(accountController.logoutAccount));
 
 module.exports = router;

@@ -35,7 +35,7 @@ h1{
 header#top-header {
     display: flex;
     justify-content: space-between;
-    margin: 1.5em 0;
+    margin: 0.5em 0;
 }
 span.siteName a {
     font-size: 2em;
@@ -43,7 +43,14 @@ span.siteName a {
     text-decoration: none;
     color: black;
 }
-div#tools a {
+div#tools{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+div#tools span a {
     text-decoration: none;
     color: black;
     text-transform: uppercase;
@@ -247,12 +254,7 @@ select, textarea, input {
     border-radius: 5px;
     border: 1px solid;
 }
-/* input:required:invalid, input:focus:invalid {
- background-color: #83101052;
-}
-input:required:valid {
- background-color: rgba(2, 117, 2, 0.281);
-} */
+
 button.submitBtn{
   background-color: var(--color4);
   color: var(--headfontcolor);
@@ -276,11 +278,20 @@ button.submitBtn:hover{
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  margin-bottom: 0.1em;
+  margin-top: 1em;
 }
-
+.managementCon h3 {
+    margin-bottom: 0;
+}
+.manageTitle{
+  margin-top: 1.5em;
+}
 div#messages {
-    color: var(--color4);
-    padding-left: 1em;
+    background-color: #9a91915c;
     margin-bottom: 0.5em;
     font-style: italic;
+    color: black;
+    text-align: center;
+    padding: 0.5em;
 }

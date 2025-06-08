@@ -8,30 +8,41 @@
         </ul>
         <% } %>
     
-    <form action="/account/register" method="post">
-        <p>All fields are required.</p>
+    <form action="/account/update" method="post">
         <div class="inputCon">
             <label for="fname">
-                First name:
+                First Name
             </label>
             <input type="text" id="f_name" name="account_firstname" 
                 placeholder="Katherine" size="10" required value="<%= locals.account_firstname %>">
         </div>
         <div class="inputCon">
             <label for="lname">
-                Last name:
+                Last name
             </label>
             <input type="text" id="l_name" name="account_lastname" 
                 placeholder="Canes" required value="<%= locals.account_lastname %>">
         </div>
         <div class="inputCon">
             <label for="email">
-                Email:
+                Email
             </label>
             <input type="email" id="email" name="account_email" 
                 placeholder="Enter your Email" required value="<%= locals.account_email %>">
         </div>
-            
+            <input type="hidden" name="account_id"
+                <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+                <% } %>>
+        <div class="wrap">
+            <button type="submit" class="submitBtn">
+                Update
+            </button>
+        </div>
+    </form>
+    <form action="/account/update-password" method="post"> 
+        <h2>Update Password</h2>
+         <div><i>Passwords must be minimum of 12 characters and include 1 capital letter, 1 number and 1 special character.</i></div>
+        <p>*Note: Your password will be changed</p>
         <div class="inputCon">
             <label for="password">
                 Password:
@@ -39,14 +50,16 @@
             <input type="password" id="password" name="account_password" 
                 placeholder="Enter your Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"  required title="Password must be at least 12 characters and include an uppercase letter, a number, a special character, and no spaces.">
         </div>
-            <div><i>Passwords must be minimum of 12 characters and include 1 capital letter, 1 number and 1 special character.</i></div>
-
+            <input type="hidden" name="account_id"
+                <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+                <% } %>>
             <div class="wrap">
                 <button type="submit" class="submitBtn">
-                    Register
+                    Update Password
                 </button>
             </div>
-        </form>
-        <!-- <div class="signup">
-        </div> -->
+    </form>
+
+
 </div>
+    

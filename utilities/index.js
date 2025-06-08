@@ -119,4 +119,18 @@ Util.checkJWTToken = (req, res, next) => {
     return res.redirect("/account/login")
   }
  }
+
+ Util.checkAdminOrEmployee = (req, res, next) => {
+  const accountData = res.locals.accountData;
+
+  if (
+    accountData &&
+    (accountData.account_type === "Admin" || accountData.account_type === "Employee")
+  ) {
+    return next();
+  }
+  req.flash("notice", "You must be logged in with proper access to view this page.");
+  return res.redirect("/account/login");
+};
+
 module.exports = Util

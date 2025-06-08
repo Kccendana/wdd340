@@ -1,3 +1,17 @@
 <h1><%= title %></h1>
-<p>Welcome <span><%= account_firstname %></span>!</p>
-<h2>You are logged in</h2>
+<%- messages() %>
+<h2>Welcome <span><%= account_firstname %></span>!</h2>
+<p>You are logged in</p>
+
+<div class="managementCon">
+    <a href="/account/update/<%= accountData.account_id %>">Edit Account Information</a>
+</div>
+
+
+<% if (accountData && (accountData.account_type === 'Admin' || accountData.account_type === 'Employee')) { %>
+  <div class="managementCon">
+      <h3>Inventory Management </h3>
+      <a href="/inv">Manage Inventory</a>
+  </div>
+  <table id="inventoryDisplay"></table>
+<% } %>

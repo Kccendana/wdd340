@@ -206,7 +206,7 @@ invCont.editInventoryView = async function (req, res, next) {
 }
 
 /* ****************************************
-*  Process add vehicle
+*  Process update vehicle
 * *************************************** */
 invCont.updateInventory = async function (req, res) {
   let nav = await utilities.getNav()
