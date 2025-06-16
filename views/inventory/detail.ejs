@@ -1,3 +1,11 @@
+<%- messages() %>
+    <% if (errors) { %>
+        <ul class="notice">
+        <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+        <%  }) %>
+        </ul>
+<% } %>
 <h1><%= vehicle.inv_year %> <%= vehicle.inv_make %> <%= vehicle.inv_model %></h1>
 <section class="details">
     <img src="<%= vehicle.inv_image %>" alt="<%= vehicle.inv_make %>  <%= vehicle.inv_model %>">
@@ -8,4 +16,14 @@
         <p><strong>Color: </strong><span class="v-info"><%= vehicle.inv_color %></span></p>
         <p><strong>Miles:</strong> <span class="v-info"><%= vehicle.inv_miles.toLocaleString() %></span></p>
     </div>
+    <form class="wishlist_form" action="/wishlist/add" method="post"> 
+        <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+        <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+        <div class="wrap">
+            <button type="submit" class="submitBtn">
+            Add to Wishlist
+            </button>
+        </div>
+</form>
 </section>
+

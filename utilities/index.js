@@ -113,6 +113,7 @@ Util.checkJWTToken = (req, res, next) => {
  * ************************************ */
  Util.checkLogin = (req, res, next) => {
   if (res.locals.loggedin) {
+    res.locals.account_id = req.session.account_id
     next()
   } else {
     req.flash("notice", "Please log in.")

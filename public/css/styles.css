@@ -295,3 +295,9 @@ div#messages {
     text-align: center;
     padding: 0.5em;
 }
+
+form.wishlist_form {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}

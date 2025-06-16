@@ -12,6 +12,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute");
 const accountRoute = require("./routes/accountRoute"); //acount
+const wishlistRoute = require("./routes/wishlistRoute")
 const utilities = require("./utilities/")
 const errorRoute = require("./routes/errorRoute");
 const session = require("express-session")
@@ -71,6 +72,9 @@ app.use("/inv", inventoryRoute)
 
 // account route
 app.use("/account", accountRoute)
+
+//Wishlist route
+app.use("/wishlist", wishlistRoute)
 
 //triggered error
 app.use("/error", errorRoute);
