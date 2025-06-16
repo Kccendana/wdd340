@@ -16,13 +16,19 @@
         <p><strong>Color: </strong><span class="v-info"><%= vehicle.inv_color %></span></p>
         <p><strong>Miles:</strong> <span class="v-info"><%= vehicle.inv_miles.toLocaleString() %></span></p>
     </div>
-    <form class="wishlist_form" action="/wishlist/add" method="post"> 
-        <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
-        <div class="wrap">
-            <button type="submit" class="submitBtn">
-            Add to Wishlist
-            </button>
-        </div>
-</form>
+    <% if (locals.accountData) { %>
+        <form class="wishlist_form" action="/wishlist/add" method="post"> 
+                <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+                <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+                <div class="wrap">
+                    <button type="submit" class="submitBtn">
+                    Add to Wishlist
+                    </button>
+                </div>
+        </form><!-- Show form only if logged in -->
+    <% } else { %>
+    <p><a class="button" href="/account/login">Log in</a> to add this vehicle to your wishlist.</p>
+    <% } %>
+    
 </section>
 
