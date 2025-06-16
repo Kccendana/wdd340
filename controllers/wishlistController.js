@@ -32,8 +32,8 @@ const wishlistCont = {}
 //   }
 // }
 wishlistCont.addwishlist = async function addwishlist(req, res) {
-  const { inv_id, account_id } = req.body
-  let nav = await utilities.getNav()
+  const account_id = res.locals.accountData.account_id
+  const { inv_id} = req.body
 
   // Debug log
   console.log("inv_id:", inv_id, "account_id:", account_id)
